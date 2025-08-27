@@ -1,0 +1,67 @@
+
+{
+  "name": "support_tickets",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["ticketId", "subject", "category", "priority", "status", "createdAt"],
+        "properties": {
+          "ticketId": {
+            "bsonType": "string",
+            "description": "ID único do ticket"
+          },
+          "subject": {
+            "bsonType": "string",
+            "description": "Assunto do ticket"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Descrição detalhada do problema"
+          },
+          "category": {
+            "bsonType": "string",
+            "enum": ["tecnico", "comercial", "financeiro", "cancelamento", "outros"],
+            "description": "Categoria do ticket"
+          },
+          "priority": {
+            "bsonType": "string",
+            "enum": ["baixa", "media", "alta", "critica"],
+            "description": "Prioridade do atendimento"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["aberto", "em_andamento", "aguardando_cliente", "resolvido", "fechado"],
+            "description": "Status atual do ticket"
+          },
+          "userId": {
+            "bsonType": "string",
+            "description": "ID do usuário que criou o ticket"
+          },
+          "assignedTo": {
+            "bsonType": "string",
+            "description": "Técnico responsável pelo atendimento"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação do ticket"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data da última atualização"
+          },
+          "resolvedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de resolução do ticket"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

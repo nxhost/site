@@ -1,0 +1,76 @@
+
+{
+  "name": "seo_services",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["serviceId", "name", "price", "active"],
+        "properties": {
+          "serviceId": {
+            "bsonType": "string",
+            "description": "ID único do serviço de SEO"
+          },
+          "name": {
+            "bsonType": "string",
+            "description": "Nome do serviço"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Descrição do serviço"
+          },
+          "price": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Preço mensal do serviço"
+          },
+          "originalPrice": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Preço original antes do desconto"
+          },
+          "duration": {
+            "bsonType": "string",
+            "description": "Duração do serviço"
+          },
+          "keywords": {
+            "bsonType": "string",
+            "description": "Quantidade de palavras-chave"
+          },
+          "features": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string"
+            },
+            "description": "Lista de recursos inclusos"
+          },
+          "popular": {
+            "bsonType": "bool",
+            "description": "Serviço popular"
+          },
+          "active": {
+            "bsonType": "bool",
+            "description": "Serviço ativo"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Criador do registro"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

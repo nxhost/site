@@ -1,0 +1,76 @@
+
+{
+  "name": "service_orders",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["orderId", "serviceType", "planId", "status", "totalValue", "createdAt"],
+        "properties": {
+          "orderId": {
+            "bsonType": "string",
+            "description": "ID único do pedido"
+          },
+          "serviceType": {
+            "bsonType": "string",
+            "enum": ["vps", "dedicated", "hosting", "domain"],
+            "description": "Tipo de serviço contratado"
+          },
+          "planId": {
+            "bsonType": "string",
+            "description": "ID do plano contratado"
+          },
+          "planName": {
+            "bsonType": "string",
+            "description": "Nome do plano contratado"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["pendente", "processando", "provisionando", "ativo", "suspenso", "cancelado"],
+            "description": "Status do serviço"
+          },
+          "totalValue": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Valor total do serviço"
+          },
+          "billingCycle": {
+            "bsonType": "string",
+            "enum": ["mensal", "trimestral", "semestral", "anual"],
+            "description": "Ciclo de cobrança"
+          },
+          "userId": {
+            "bsonType": "string",
+            "description": "ID do cliente"
+          },
+          "serverInfo": {
+            "bsonType": "object",
+            "description": "Informações do servidor provisionado"
+          },
+          "domainInfo": {
+            "bsonType": "object",
+            "description": "Informações do domínio registrado"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação do pedido"
+          },
+          "activatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de ativação do serviço"
+          },
+          "nextBilling": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Próxima data de cobrança"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

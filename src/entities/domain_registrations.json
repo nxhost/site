@@ -1,0 +1,87 @@
+
+{
+  "name": "domain_registrations",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["domainId", "domain", "extension", "registrant", "price", "status", "registrationDate"],
+        "properties": {
+          "domainId": {
+            "bsonType": "string",
+            "description": "ID único do registro de domínio"
+          },
+          "domain": {
+            "bsonType": "string",
+            "description": "Nome do domínio sem extensão"
+          },
+          "extension": {
+            "bsonType": "string",
+            "enum": [".com", ".com.br", ".net", ".org", ".info", ".biz", ".co", ".me", ".io", ".tech"],
+            "description": "Extensão do domínio"
+          },
+          "fullDomain": {
+            "bsonType": "string",
+            "description": "Domínio completo (nome + extensão)"
+          },
+          "registrant": {
+            "bsonType": "string",
+            "description": "ID do cliente registrante"
+          },
+          "price": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Preço anual do domínio"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["active", "pending", "expired", "suspended"],
+            "description": "Status do domínio"
+          },
+          "registrationDate": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de registro"
+          },
+          "expirationDate": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de expiração"
+          },
+          "autoRenew": {
+            "bsonType": "bool",
+            "description": "Renovação automática ativada"
+          },
+          "nameservers": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string"
+            },
+            "description": "Servidores DNS configurados"
+          },
+          "privacy": {
+            "bsonType": "bool",
+            "description": "Proteção de privacidade ativada"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Criador do registro"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação do registro"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

@@ -1,0 +1,91 @@
+
+{
+  "name": "blog_posts",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["postId", "title", "slug", "content", "category", "published"],
+        "properties": {
+          "postId": {
+            "bsonType": "string",
+            "description": "Identificador único do post"
+          },
+          "title": {
+            "bsonType": "string",
+            "description": "Título do post"
+          },
+          "slug": {
+            "bsonType": "string",
+            "description": "URL amigável do post"
+          },
+          "excerpt": {
+            "bsonType": "string",
+            "description": "Resumo do post"
+          },
+          "content": {
+            "bsonType": "string",
+            "description": "Conteúdo completo do post"
+          },
+          "category": {
+            "bsonType": "string",
+            "enum": ["hospedagem", "vps", "dedicados", "dominios", "seguranca", "tutoriais"]
+          },
+          "tags": {
+            "bsonType": "array",
+            "description": "Tags do post"
+          },
+          "metaTitle": {
+            "bsonType": "string",
+            "description": "Título SEO"
+          },
+          "metaDescription": {
+            "bsonType": "string",
+            "description": "Descrição SEO"
+          },
+          "featuredImage": {
+            "bsonType": "string",
+            "description": "Imagem destacada"
+          },
+          "author": {
+            "bsonType": "string",
+            "description": "Autor do post"
+          },
+          "readTime": {
+            "bsonType": "int",
+            "description": "Tempo de leitura em minutos"
+          },
+          "published": {
+            "bsonType": "bool",
+            "description": "Post publicado"
+          },
+          "featured": {
+            "bsonType": "bool",
+            "description": "Post em destaque"
+          },
+          "views": {
+            "bsonType": "int",
+            "description": "Número de visualizações"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Criador do registro"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

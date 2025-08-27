@@ -1,0 +1,84 @@
+
+{
+  "name": "data_centers",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["dcId", "name", "location", "country", "active"],
+        "properties": {
+          "dcId": {
+            "bsonType": "string",
+            "description": "Identificador único do data center"
+          },
+          "name": {
+            "bsonType": "string",
+            "description": "Nome do data center"
+          },
+          "location": {
+            "bsonType": "string",
+            "description": "Cidade/Estado do data center"
+          },
+          "country": {
+            "bsonType": "string",
+            "description": "País do data center"
+          },
+          "region": {
+            "bsonType": "string",
+            "description": "Região geográfica"
+          },
+          "latitude": {
+            "bsonType": "number",
+            "description": "Latitude para mapeamento"
+          },
+          "longitude": {
+            "bsonType": "number",
+            "description": "Longitude para mapeamento"
+          },
+          "active": {
+            "bsonType": "bool",
+            "description": "Data center ativo"
+          },
+          "featured": {
+            "bsonType": "bool",
+            "description": "Data center em destaque"
+          },
+          "tier": {
+            "bsonType": "string",
+            "enum": ["Tier I", "Tier II", "Tier III", "Tier IV"],
+            "description": "Classificação do data center"
+          },
+          "certifications": {
+            "bsonType": "array",
+            "description": "Certificações do data center"
+          },
+          "features": {
+            "bsonType": "array",
+            "description": "Recursos e características"
+          },
+          "connectivity": {
+            "bsonType": "array",
+            "description": "Provedores de conectividade"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Criador do registro"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

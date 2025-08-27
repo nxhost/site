@@ -1,0 +1,72 @@
+
+{
+  "name": "object_storage",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["planId", "name", "storage", "price", "active"],
+        "properties": {
+          "planId": {
+            "bsonType": "string",
+            "description": "Identificador único do plano"
+          },
+          "name": {
+            "bsonType": "string",
+            "description": "Nome do plano"
+          },
+          "storage": {
+            "bsonType": "string",
+            "description": "Capacidade de armazenamento"
+          },
+          "price": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Preço mensal em reais"
+          },
+          "requests": {
+            "bsonType": "string",
+            "description": "Número de requisições incluídas"
+          },
+          "bandwidth": {
+            "bsonType": "string",
+            "description": "Largura de banda incluída"
+          },
+          "regions": {
+            "bsonType": "array",
+            "description": "Regiões disponíveis"
+          },
+          "features": {
+            "bsonType": "array",
+            "description": "Recursos incluídos"
+          },
+          "active": {
+            "bsonType": "bool",
+            "description": "Plano ativo"
+          },
+          "popular": {
+            "bsonType": "bool",
+            "description": "Plano popular"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Criador do registro"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

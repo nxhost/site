@@ -1,0 +1,94 @@
+
+{
+  "name": "vps_plans",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["planId", "name", "price", "active"],
+        "properties": {
+          "planId": {
+            "bsonType": "string",
+            "description": "ID único do plano VPS"
+          },
+          "name": {
+            "bsonType": "string",
+            "description": "Nome do plano VPS"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Descrição do plano"
+          },
+          "price": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Preço mensal do plano"
+          },
+          "originalPrice": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Preço original antes do desconto"
+          },
+          "setupFee": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Taxa de configuração"
+          },
+          "cpu": {
+            "bsonType": "string",
+            "description": "Especificação da CPU"
+          },
+          "ram": {
+            "bsonType": "number",
+            "minimum": 1,
+            "description": "Memória RAM em GB"
+          },
+          "storage": {
+            "bsonType": "string",
+            "description": "Armazenamento"
+          },
+          "bandwidth": {
+            "bsonType": "string",
+            "description": "Largura de banda"
+          },
+          "features": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string"
+            },
+            "description": "Lista de recursos inclusos"
+          },
+          "featured": {
+            "bsonType": "bool",
+            "description": "Plano em destaque"
+          },
+          "active": {
+            "bsonType": "bool",
+            "description": "Plano ativo"
+          },
+          "dataCenter": {
+            "bsonType": "string",
+            "description": "Localização do data center"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Criador do registro"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

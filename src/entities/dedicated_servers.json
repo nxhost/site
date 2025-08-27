@@ -1,0 +1,89 @@
+
+{
+  "name": "dedicated_servers",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["serverId", "name", "price", "active"],
+        "properties": {
+          "serverId": {
+            "bsonType": "string",
+            "description": "ID único do servidor dedicado"
+          },
+          "name": {
+            "bsonType": "string",
+            "description": "Nome do servidor dedicado"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Descrição do servidor"
+          },
+          "price": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Preço mensal do servidor"
+          },
+          "setupFee": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Taxa de configuração"
+          },
+          "cpu": {
+            "bsonType": "string",
+            "description": "Especificação da CPU"
+          },
+          "ram": {
+            "bsonType": "number",
+            "minimum": 1,
+            "description": "Memória RAM em GB"
+          },
+          "storage": {
+            "bsonType": "string",
+            "description": "Armazenamento"
+          },
+          "bandwidth": {
+            "bsonType": "string",
+            "description": "Largura de banda"
+          },
+          "features": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string"
+            },
+            "description": "Lista de recursos inclusos"
+          },
+          "featured": {
+            "bsonType": "bool",
+            "description": "Servidor em destaque"
+          },
+          "active": {
+            "bsonType": "bool",
+            "description": "Servidor ativo"
+          },
+          "dataCenter": {
+            "bsonType": "string",
+            "description": "Localização do data center"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Criador do registro"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

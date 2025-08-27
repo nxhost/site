@@ -1,0 +1,116 @@
+
+{
+  "name": "auction_sites",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["siteId", "clientId", "domain", "template", "status", "installationDate"],
+        "properties": {
+          "siteId": {
+            "bsonType": "string",
+            "description": "ID único da instalação do site de leilão"
+          },
+          "clientId": {
+            "bsonType": "string",
+            "description": "ID do cliente proprietário"
+          },
+          "domain": {
+            "bsonType": "string",
+            "description": "Domínio onde o site está instalado"
+          },
+          "template": {
+            "bsonType": "string",
+            "enum": ["classic", "modern", "marketplace", "premium", "custom"],
+            "description": "Template utilizado para o site"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["installing", "active", "maintenance", "suspended"],
+            "description": "Status atual da instalação"
+          },
+          "installationDate": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data da instalação"
+          },
+          "features": {
+            "bsonType": "object",
+            "properties": {
+              "paymentGateway": {
+                "bsonType": "bool",
+                "description": "Gateway de pagamento integrado"
+              },
+              "multiLanguage": {
+                "bsonType": "bool",
+                "description": "Suporte multilíngue"
+              },
+              "mobileApp": {
+                "bsonType": "bool",
+                "description": "Aplicativo móvel incluído"
+              },
+              "analytics": {
+                "bsonType": "bool",
+                "description": "Analytics avançado"
+              },
+              "seoOptimized": {
+                "bsonType": "bool",
+                "description": "Otimização SEO"
+              }
+            },
+            "description": "Recursos incluídos na instalação"
+          },
+          "configuration": {
+            "bsonType": "object",
+            "properties": {
+              "siteName": {
+                "bsonType": "string",
+                "description": "Nome do site de leilão"
+              },
+              "currency": {
+                "bsonType": "string",
+                "description": "Moeda padrão"
+              },
+              "timezone": {
+                "bsonType": "string",
+                "description": "Fuso horário"
+              },
+              "adminEmail": {
+                "bsonType": "string",
+                "description": "Email do administrador"
+              }
+            },
+            "description": "Configurações do site"
+          },
+          "price": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Preço da instalação"
+          },
+          "monthlyFee": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Taxa mensal de manutenção"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Criador da instalação"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

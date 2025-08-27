@@ -1,0 +1,76 @@
+
+{
+  "name": "ecommerce_services",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["serviceId", "name", "price", "active"],
+        "properties": {
+          "serviceId": {
+            "bsonType": "string",
+            "description": "ID único do serviço de e-commerce"
+          },
+          "name": {
+            "bsonType": "string",
+            "description": "Nome do serviço"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Descrição do serviço"
+          },
+          "price": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Preço do serviço"
+          },
+          "originalPrice": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Preço original antes do desconto"
+          },
+          "deliveryTime": {
+            "bsonType": "string",
+            "description": "Prazo de entrega"
+          },
+          "productLimit": {
+            "bsonType": "string",
+            "description": "Limite de produtos"
+          },
+          "features": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string"
+            },
+            "description": "Lista de recursos inclusos"
+          },
+          "popular": {
+            "bsonType": "bool",
+            "description": "Serviço popular"
+          },
+          "active": {
+            "bsonType": "bool",
+            "description": "Serviço ativo"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Criador do registro"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

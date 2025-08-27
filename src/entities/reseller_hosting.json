@@ -1,0 +1,80 @@
+
+{
+  "name": "reseller_hosting",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["planId", "name", "price", "active"],
+        "properties": {
+          "planId": {
+            "bsonType": "string",
+            "description": "ID único do plano de revenda"
+          },
+          "name": {
+            "bsonType": "string",
+            "description": "Nome do plano de revenda"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Descrição do plano"
+          },
+          "price": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Preço mensal do plano"
+          },
+          "setupFee": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Taxa de configuração"
+          },
+          "diskSpace": {
+            "bsonType": "string",
+            "description": "Espaço em disco"
+          },
+          "bandwidth": {
+            "bsonType": "string",
+            "description": "Largura de banda"
+          },
+          "accounts": {
+            "bsonType": "string",
+            "description": "Número de contas"
+          },
+          "features": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string"
+            },
+            "description": "Lista de recursos inclusos"
+          },
+          "popular": {
+            "bsonType": "bool",
+            "description": "Plano popular"
+          },
+          "active": {
+            "bsonType": "bool",
+            "description": "Plano ativo"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Criador do registro"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de criação"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Data de atualização"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}
