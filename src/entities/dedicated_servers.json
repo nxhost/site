@@ -5,53 +5,41 @@
     "validator": {
       "$jsonSchema": {
         "bsonType": "object",
-        "required": ["serverId", "name", "price", "active"],
+        "required": ["serverId", "name", "cpu", "ram", "storage", "price", "active"],
         "properties": {
           "serverId": {
             "bsonType": "string",
-            "description": "ID único do servidor dedicado"
+            "description": "Identificador único do servidor"
           },
           "name": {
             "bsonType": "string",
             "description": "Nome do servidor dedicado"
           },
-          "description": {
-            "bsonType": "string",
-            "description": "Descrição do servidor"
-          },
-          "price": {
-            "bsonType": "number",
-            "minimum": 0,
-            "description": "Preço mensal do servidor"
-          },
-          "setupFee": {
-            "bsonType": "number",
-            "minimum": 0,
-            "description": "Taxa de configuração"
-          },
           "cpu": {
             "bsonType": "string",
-            "description": "Especificação da CPU"
+            "description": "Processador do servidor"
           },
           "ram": {
-            "bsonType": "number",
-            "minimum": 1,
+            "bsonType": "int",
+            "minimum": 8,
             "description": "Memória RAM em GB"
           },
           "storage": {
             "bsonType": "string",
-            "description": "Armazenamento"
+            "description": "Configuração de armazenamento"
           },
           "bandwidth": {
             "bsonType": "string",
-            "description": "Largura de banda"
+            "description": "Largura de banda disponível"
           },
-          "features": {
-            "bsonType": "array",
-            "items": {
-              "bsonType": "string"
-            },
-            "description": "Lista de recursos inclusos"
+          "price": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Preço mensal em reais"
+          },
+          "setupFee": {
+            "bsonType": "number",
+            "description": "Taxa de configuração inicial"
           },
           "featured": {
             "bsonType": "bool",
@@ -59,7 +47,15 @@
           },
           "active": {
             "bsonType": "bool",
-            "description": "Servidor ativo"
+            "description": "Servidor ativo para venda"
+          },
+          "description": {
+            "bsonType": "string",
+            "description": "Descrição do servidor"
+          },
+          "features": {
+            "bsonType": "array",
+            "description": "Lista de recursos incluídos"
           },
           "dataCenter": {
             "bsonType": "string",
@@ -67,7 +63,7 @@
           },
           "creator": {
             "bsonType": "string",
-            "description": "Criador do registro"
+            "description": "Criador do servidor"
           },
           "createdAt": {
             "bsonType": "string",

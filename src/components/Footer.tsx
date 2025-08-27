@@ -1,160 +1,141 @@
 
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Cloud, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react'
+import { Server, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react'
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear()
-
-  const services = [
-    { name: 'VPS Cloud', path: '/vps-cloud' },
-    { name: 'Servidores Dedicados', path: '/servidores-dedicados' },
-    { name: 'Object Storage', path: '/object-storage' },
-    { name: 'Hospedagem Web', path: '/hospedagem-web' },
-    { name: 'Domínios & SSL', path: '/dominios-ssl' }
-  ]
-
-  const company = [
-    { name: 'Sobre Nós', path: '/sobre' },
-    { name: 'Data Centers', path: '/data-centers' },
-    { name: 'Preços', path: '/precos' },
-    { name: 'Contato', path: '/contato' },
-    { name: 'Blog', path: '/blog' }
-  ]
-
-  const support = [
-    { name: 'Central de Ajuda', path: '/suporte' },
-    { name: 'Documentação', path: '/docs' },
-    { name: 'Status dos Serviços', path: '/status' },
-    { name: 'Política de Privacidade', path: '/privacidade' },
-    { name: 'Termos de Uso', path: '/termos' }
-  ]
-
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-          {/* Logo and Description */}
-          <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center space-x-2 mb-4">
-              <div className="bg-gradient-to-r from-cyan-500 to-blue-500 p-2 rounded-lg">
-                <Cloud className="h-6 w-6 text-white" />
-              </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                NXHost.net
-              </span>
-            </Link>
-            <p className="text-gray-300 mb-6 max-w-md">
-              Cloud hosting de nova geração com infraestrutura de alta performance, 
-              suporte premium 24/7 em português e data centers estratégicos no Brasil.
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Logo e Descrição */}
+          <div className="space-y-4">
+            <div className="flex items-center space-x-2">
+              <Server className="h-8 w-8 text-blue-400" />
+              <span className="text-xl font-bold">HostingPro</span>
+            </div>
+            <p className="text-gray-300 text-sm">
+              Sua plataforma completa para hospedagem web, servidores dedicados, VPS, 
+              registro de domínios e instalação de sites de leilão.
             </p>
-            
-            {/* Contact Info */}
-            <div className="space-y-3">
-              <div className="flex items-center text-gray-300">
-                <Mail className="h-5 w-5 mr-3 text-cyan-400" />
-                <span>contato@nxhost.net</span>
-              </div>
-              <div className="flex items-center text-gray-300">
-                <Phone className="h-5 w-5 mr-3 text-cyan-400" />
-                <span>+55 (11) 3000-0000</span>
-              </div>
-              <div className="flex items-center text-gray-300">
-                <MapPin className="h-5 w-5 mr-3 text-cyan-400" />
-                <span>São Paulo, Brasil</span>
-              </div>
+            <div className="flex space-x-4">
+              <Facebook className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer" />
+              <Twitter className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer" />
+              <Instagram className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer" />
+              <Linkedin className="h-5 w-5 text-gray-400 hover:text-blue-400 cursor-pointer" />
             </div>
           </div>
 
-          {/* Services */}
+          {/* Produtos */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Serviços</h3>
-            <ul className="space-y-3">
-              {services.map((service) => (
-                <li key={service.path}>
-                  <Link
-                    to={service.path}
-                    className="text-gray-300 hover:text-cyan-400 transition-colors"
-                  >
-                    {service.name}
-                  </Link>
-                </li>
-              ))}
+            <h3 className="text-lg font-semibold mb-4">Produtos</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/hospedagem" className="text-gray-300 hover:text-white transition-colors">
+                  Hospedagem Web
+                </Link>
+              </li>
+              <li>
+                <Link to="/vps" className="text-gray-300 hover:text-white transition-colors">
+                  Servidores VPS
+                </Link>
+              </li>
+              <li>
+                <Link to="/servidores-dedicados" className="text-gray-300 hover:text-white transition-colors">
+                  Servidores Dedicados
+                </Link>
+              </li>
+              <li>
+                <Link to="/dominios" className="text-gray-300 hover:text-white transition-colors">
+                  Registro de Domínios
+                </Link>
+              </li>
+              <li>
+                <Link to="/sites-leilao" className="text-gray-300 hover:text-white transition-colors">
+                  Sites de Leilão
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Company */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Empresa</h3>
-            <ul className="space-y-3">
-              {company.map((item) => (
-                <li key={item.path}>
-                  <Link
-                    to={item.path}
-                    className="text-gray-300 hover:text-cyan-400 transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Support */}
+          {/* Suporte */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Suporte</h3>
-            <ul className="space-y-3">
-              {support.map((item) => (
-                <li key={item.path}>
-                  <Link
-                    to={item.path}
-                    className="text-gray-300 hover:text-cyan-400 transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
+            <ul className="space-y-2">
+              <li>
+                <Link to="/suporte" className="text-gray-300 hover:text-white transition-colors">
+                  Central de Ajuda
+                </Link>
+              </li>
+              <li>
+                <Link to="/dashboard" className="text-gray-300 hover:text-white transition-colors">
+                  Área do Cliente
+                </Link>
+              </li>
+              <li>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                  Status dos Serviços
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-gray-300 hover:text-white transition-colors">
+                  Documentação
+                </a>
+              </li>
+              <li>
+                <Link to="/contato" className="text-gray-300 hover:text-white transition-colors">
+                  Contato
+                </Link>
+              </li>
             </ul>
+          </div>
+
+          {/* Contato */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Contato</h3>
+            <div className="space-y-3">
+              <div className="flex items-center space-x-2">
+                <Phone className="h-4 w-4 text-blue-400" />
+                <span className="text-gray-300 text-sm">(11) 4000-0000</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Mail className="h-4 w-4 text-blue-400" />
+                <span className="text-gray-300 text-sm">contato@hostingpro.com.br</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <MapPin className="h-4 w-4 text-blue-400" />
+                <span className="text-gray-300 text-sm">São Paulo, SP - Brasil</span>
+              </div>
+            </div>
+
+            {/* Certificações */}
+            <div className="mt-6">
+              <h4 className="text-sm font-semibold mb-2">Certificações</h4>
+              <div className="flex space-x-2">
+                <div className="bg-green-600 text-white text-xs px-2 py-1 rounded">SSL</div>
+                <div className="bg-blue-600 text-white text-xs px-2 py-1 rounded">ISO 27001</div>
+                <div className="bg-purple-600 text-white text-xs px-2 py-1 rounded">LGPD</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Social Media and Copyright */}
-        <div className="border-t border-gray-800 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex space-x-6 mb-4 md:mb-0">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-cyan-400 transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-cyan-400 transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-cyan-400 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-cyan-400 transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-            </div>
-            
-            <div className="text-gray-400 text-sm">
-              © {currentYear} NXHost.net. Todos os direitos reservados.
-            </div>
+        <hr className="border-gray-700 my-8" />
+
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-400 text-sm">
+            © 2025 HostingPro. Todos os direitos reservados.
+          </p>
+          <div className="flex space-x-6 mt-4 md:mt-0">
+            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+              Política de Privacidade
+            </a>
+            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+              Termos de Uso
+            </a>
+            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+              SLA
+            </a>
           </div>
         </div>
       </div>
